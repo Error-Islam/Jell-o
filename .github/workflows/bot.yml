@@ -5,6 +5,10 @@ on:
     - cron: '*/15 * * * *'  # Every 15 minutes
   workflow_dispatch:
 
+concurrency:
+  group: webpage-keepalive
+  cancel-in-progress: true
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -26,4 +30,3 @@ jobs:
         PATH: /usr/lib/chromium-browser/:$PATH
       run: |
         python main.py
-        
