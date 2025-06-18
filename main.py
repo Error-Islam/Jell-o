@@ -5,25 +5,37 @@ import time
 
 url = "https://xn2f4k-8080.csb.app/auth/login"
 
-def run_bot():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run in background
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
 
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
+driver = webdriver.Chrome(options=chrome_options)
+driver.get(url)
 
-    time.sleep(5)
-    try:
-        btn = driver.find_element(By.XPATH, "//button[contains(text(),'Yes, proceed')]")
-        btn.click()
-    except Exception as e:
-        print("Button not found:", e)
+time.sleep(5)  # Wait for page to load
 
-    time.sleep(14 * 60)  # Wait for 14 mins
-    driver.quit()
+try:
+    # Click the "Yes, proceed..." button
+    proceed_button = driver.find_element(By.XPATH, "//button[contains(text(),'Yes, proceed')]")
+    proceed_button.click()
+    print("Clicked the proceed button.")
+except Exception as e:
+    print("Proceed button not found or error:", e)
 
-while True:
-    run_bot()
-  
+# Stay for 14 minutes with refreshes every 5 minutes
+total_minutes = 14
+refresh_interval = 5
+
+elapsed = 0
+while elapsed < total_minutes:
+    print(f"Elapsed: {elapsed} min — sleeping for {refresh_interval} more...")
+    time.sleep(refresh_interval * 60)
+    elapsed += refresh_interval
+    if elapsed < total_minutes:
+        print("Refreshing the page...")
+        driver.refresh()
+        time.sleep(5)  # Give time to reload
+
+print("Time complete. Closing browser.")
+driver.quit()
