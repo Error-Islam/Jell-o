@@ -24,8 +24,8 @@ except Exception as e:
     print("Proceed button not found or error:", e)
 
 # Stay for 14 minutes with refreshes every 5 minutes
-total_minutes = 14
-refresh_interval = 5
+total_minutes = 120
+refresh_interval = 1
 
 elapsed = 0
 while elapsed < total_minutes:
