@@ -13,7 +13,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 driver = webdriver.Chrome(options=chrome_options)
 driver.get(url)
 
-time.sleep(5)  # Wait for page to load
+time.sleep(1)  # Wait for page to load
 
 try:
     # Click the "Yes, proceed..." button
@@ -35,7 +35,7 @@ while elapsed < total_minutes:
     if elapsed < total_minutes:
         print("Refreshing the page...")
         driver.refresh()
-        time.sleep(5)  # Give time to reload
+        time.sleep(1)  # Give time to reload
 
 print("Time complete. Closing browser.")
 driver.quit()
