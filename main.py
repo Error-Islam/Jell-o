@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
 
-url = "https://yvzd8f-8080.csb.app/auth/login"
+url = "https://yvzd8f-8080.csb.app"
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  # Run in background
