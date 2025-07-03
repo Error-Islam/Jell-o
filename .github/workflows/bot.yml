@@ -2,7 +2,7 @@ name: Webpage Keep-Alive Bot
 
 on:
   schedule:
-    - cron: '*/360 * * * *'  # Every 15 minutes
+    - cron: '*/15 */15 * * *'  # Every 15 minutes
   workflow_dispatch:
 
 jobs:
