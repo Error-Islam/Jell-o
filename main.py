@@ -7,7 +7,7 @@ import sys
 
 def main():
     url = "https://yvzd8f-8080.csb.app"
-    total_minutes = 480  # 8 hours total runtime
+    total_minutes = 60  # 8 hours total runtime
     refresh_interval = 1  # Refresh every 1 minute (adjust as needed)
 
     # Configure Chrome options
