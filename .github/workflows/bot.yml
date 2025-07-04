@@ -3,7 +3,7 @@ name: Selenium Uptime Bot
 on:
   workflow_dispatch:     # Manual trigger
   schedule:
-    - cron: '* * * * *'  # Every 1 minute
+    - cron: '*480 * * * *'  # Every 1 minute
 
 jobs:
   run-selenium-bot:
