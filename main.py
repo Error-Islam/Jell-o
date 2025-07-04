@@ -7,7 +7,7 @@ import time
 def main():
     url = "https://26p6pg-8080.csb.app"
     total_minutes = 60  # total run time
-    refresh_interval = 30  # seconds
+    refresh_interval = 20  # seconds
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
