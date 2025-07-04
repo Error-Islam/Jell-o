@@ -5,11 +5,9 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 import time
 import sys
 
-def main():
+def run_session(total_minutes=60, refresh_interval=0.5):  # 0.5 minutes = 30 seconds
     url = "https://yvzd8f-8080.csb.app"
-    total_minutes = 60  # 8 hours total runtime
-    refresh_interval = 1  # Refresh every 1 minute (adjust as needed)
-
+    
     # Configure Chrome options
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -56,10 +54,24 @@ def main():
     finally:
         try:
             driver.quit()
-            print("Browser closed successfully")
+            print("Session completed - Browser closed successfully")
         except:
             pass
-        sys.exit()
+
+def main():
+    while True:  # Infinite outer loop
+        print("\n" + "="*50)
+        print("Starting new monitoring session")
+        print("="*50 + "\n")
+        
+        run_session(total_minutes=60, refresh_interval=0.5)  # 30 second intervals for 60 minutes
+        
+        # Optional: add a small delay between sessions if needed
+        time.sleep(5)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nScript stopped by user")
+        sys.exit(0)
