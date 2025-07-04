@@ -6,7 +6,7 @@ import time
 import sys
 
 def run_session(total_minutes=60, refresh_interval=0.5):  # 0.5 minutes = 30 seconds
-    url = "https://yvzd8f-8080.csb.app"
+    url = "https://26p6pg-8080.csb.app"
     
     # Configure Chrome options
     chrome_options = Options()
