@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 
 def main():
-    url = "https://26p6pg-8080.csb.app"
+    url = "147.185.221.30:5912"
     total_minutes = 60  # total run time
     refresh_interval = 120  # seconds
 
